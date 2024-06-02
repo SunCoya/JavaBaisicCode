@@ -19,6 +19,5 @@ public class Solution1_1122 {
             }
         }
         return arr1;
-        //aaa
     }
 }
