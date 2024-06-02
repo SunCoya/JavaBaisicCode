@@ -56,6 +56,8 @@ public class Solution3_164 {
      （max-min）/range =  nums.length
      让桶个数比数组元素多一个
      还有一些细节需要考虑，这里不多做思考
+
+     其实这样看来，桶排序就是计数排序的一种高级应用
      */
     public int maximumGap3(int[] nums) {
         if (nums.length<2)return 0;
