@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<students>
+    <student id="1">
+        <name>zhangsan</name>
+        <age>23</age>
+        <!--特殊符号-->
+        <special>小于&lt; 大于&gt; 且&amp; 单引&apos; 双引&quot;</special>
+        <!--使用CD快捷键加入CDATA模块-->
+        <special><![CDATA[<&'">]]></special>
+    </student>
+</students>
+<!--
+XML（EXtensible markup language，可扩展（标签名字随便写）的标记性语言）
+一般用来保存配置文件，缺点就是解析起来比较复杂
+使用properties配置文件时遇到同键多值的情况会出现问题
+
+xml声明规则：
+1.文档声明必须是第一行，声明版本号码，编码:<?xml version="1.0" encoding="UTF-8" ?>
+2.标签必须要有一对<name></name>或者是不成对的标签:<name/>
+3.必须要有根标签（最外面的标签），且只能有一个
+4.在标签里面可以设置属性，要与标签名隔开，属性值要用引号引起来：<student id="1"><student/>
+-->

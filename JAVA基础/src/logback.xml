@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<configuration>
+    <!-- appender标签用于设置输出位置与输出格式 -->
+    <!-- 控制台输出，CONSOLE表示可以输出到控制台 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--可以改为error-->
+        <target>System.out</target>
+        <encoder charset="UTF-8">
+            <!-- 输出日志记录格式 %d是日期  level表示日志级别  c表示当前操作的类  thread是线程名  %msg%n是显示消息加换行 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%c] [%thread] : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 输出文件日志 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder charset="UTF-8">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} : %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志输出路径，每天产生一个文件-->
+            <fileNamePattern>D:/IDEACode/demo1/JAVA基础/src/Day36/MyLog/data%d{yyyy-MMdd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--
+    level设置日志输出级别   ref标识输出位置，表示可以输出到控制台与File文件
+    All表示全打印，OFF表示全部不打印（也可以用来关闭日志）
+    一般写INFO与DEBUG，高于这个级别的，比如ERROR也会输出
+    -->
+    <root level="All">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

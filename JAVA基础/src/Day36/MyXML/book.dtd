@@ -1,0 +1,19 @@
+<!--
+    xml编写规定：DTD与schema
+    DTD（Document Type Definition）：约束文档，后缀必须是.dtd
+
+    <!ELEMENT 书架 (书+)>
+    元素根标签必须叫书架，书架里面的元素必须是书，书能写多个
+    <!ELEMENT 书 (书名，作者，售价)>
+    书里面有三个子标签
+    <!ELEMENT 书名 (#PCDATA)>
+    代表里面的元素只能是文本数据, 缺点就是不能限定数据类型
+
+    而schema可以约束具体数类型，约束能力更加强大，其本身也是一个xml文件，也受到其他xml文件的约束
+    编写schema约束文档，后缀名必须是xsd
+-->
+<!ELEMENT 书架 (书+)>
+<!ELEMENT 书 (书名,作者,售价)>
+<!ELEMENT 书名 (#PCDATA)>
+<!ELEMENT 作者 (#PCDATA)>
+<!ELEMENT 售价 (#PCDATA)>
