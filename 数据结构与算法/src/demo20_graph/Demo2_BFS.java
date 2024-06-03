@@ -7,16 +7,16 @@ import java.util.List;
  * 广度优先遍历，使用队列，注意在加入队列的时候改访问状态
  */
 public class Demo2_BFS {
-    public static void bfs(Vertex v){
+    public static void bfs(Vertex v) {
         LinkedList<Vertex> queue = new LinkedList<>();
         queue.offer(v);
-        v.visited=true;
-        while (!queue.isEmpty()){
+        v.visited = true;
+        while (!queue.isEmpty()) {
             Vertex poll = queue.poll();
             System.out.println(poll.name);
             for (Edge edge : poll.edges) {
-                if (!edge.linked.visited){
-                    edge.linked.visited=true;
+                if (!edge.linked.visited) {
+                    edge.linked.visited = true;
                     queue.offer(edge.linked);
                 }
             }
@@ -28,10 +28,10 @@ public class Demo2_BFS {
         Vertex b = new Vertex("B");
         Vertex c = new Vertex("C");
         Vertex d = new Vertex("D");
-        a.edges= List.of(new Edge(b),new Edge(c));
-        b.edges=List.of(new Edge(d));
-        c.edges=List.of(new Edge(d));
-        d.edges=List.of();
+        a.edges = List.of(new Edge(b), new Edge(c));
+        b.edges = List.of(new Edge(d));
+        c.edges = List.of(new Edge(d));
+        d.edges = List.of();
         bfs(a);
     }
 }

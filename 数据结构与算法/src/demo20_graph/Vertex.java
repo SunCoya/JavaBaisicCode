@@ -36,6 +36,12 @@ public class Vertex {
     int inDegree;//入度，用在拓扑排序
     int status;//状态，0未访问，1正在防蚊重，2已经访问过（用于环的检测），用在拓扑排序（深度遍历）
 
+
+    //距离，用于单源最短路径算法
+    int dist = Integer.MAX_VALUE;
+
+    Vertex prev=null;//记录路径，跟新最短路径的时候指向前一个节点，为什么不指向后面的呢？一开始就算出了距离，如果选最短的就改不了
+
     public Vertex(String name) {
         this.name = name;
     }
