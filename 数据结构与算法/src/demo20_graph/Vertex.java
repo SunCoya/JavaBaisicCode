@@ -1,6 +1,7 @@
 package demo20_graph;
 
 import java.util.List;
+import java.util.Objects;
 
 /*
 * 图
@@ -49,5 +50,16 @@ public class Vertex {
         return name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vertex vertex = (Vertex) o;
+        return Objects.equals(name, vertex.name);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
