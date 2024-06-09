@@ -27,7 +27,8 @@ public class Huffman {
     * 当队列元素只有一个的时候，哈夫曼树构建完成
     * */
     public static void main(String[] args) {
-        String origin = "abccccccc";
-        new HuffmanTree(origin);
+        String origin = "aabbccccccc";
+        HuffmanTree huffmanTree = new HuffmanTree(origin);
+        System.out.println(huffmanTree.decode(huffmanTree.encode()));
     }
 }

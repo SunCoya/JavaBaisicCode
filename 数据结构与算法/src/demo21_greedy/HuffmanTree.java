@@ -38,6 +38,8 @@ public class HuffmanTree {
     String str;
     //存放字符的哈希表，
     Map<Character,Node> map=new HashMap<>();
+    //树的根节点
+    Node root;
     public HuffmanTree(String str) {
         this.str = str;
         char[] chars = str.toCharArray();
@@ -56,11 +58,33 @@ public class HuffmanTree {
             int freq = p1.freq+p2.freq;
             queue.offer(new Node(freq,p1,p2));
         }
-        Node root = queue.poll();
+        root =  queue.poll();
         //进行编码
         sum= dfs(root, new StringBuilder());
     }
 
+    public String encode(){
+        char[] chars = str.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (char c : chars) {
+            sb.append(map.get(c).code);
+        }
+        return sb.toString();
+    }
+    public String decode(String code){
+        char[] chars = code.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < chars.length;) {
+            Node node  = root;
+            while (!node.ifLeaf()){
+                if(chars[i]=='1')node=node.right;
+                else node=node.left;
+                i++;
+            }
+            sb.append(node.ch);
+        }
+        return sb.toString();
+    }
     private int dfs(Node node, StringBuilder sb) {
         //返回int，叶子节点的值
         int sum = 0;
