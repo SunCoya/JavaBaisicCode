@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 
 //逐一处理每条边来得到最小生成树
 //连接最小的边，但是不连接多余边
+//此包中狄克斯特拉（处理负边需要用贝尔曼），prim，克鲁斯克拉都是属于贪心策略
 public class Demo8_Kruskal {
     public static void main(String[] args) {
         Vertex v1 = new Vertex("v1");
