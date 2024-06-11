@@ -9,7 +9,6 @@ import java.util.List;
  * A      1      C  1  D
  *     2  B  -2
  * 最短应该是ABCD但会判断A——C——D/B？
- *本算法思路是不动某一点，利用该点，求外顶点到别的点的距离
  * 但不能处理负的环，会越来越小
  * 该案例中可以在三轮循环过后，如果又进入判断，即存在负环
  * */
@@ -35,6 +34,7 @@ public class Demo5_Bellman {
         for (int i = 0; i < graph.size()-1; i++) {
             for (Vertex start : graph) {
                 for (Edge edge : start.edges) {
+                    //对于每一条边都遍历，算出最短距离，起点没算出来就不算
                     Vertex end = edge.linked;
                     if (start.dist!=Integer.MAX_VALUE&&start.dist+ edge.weight< end.dist){
                         end.dist=start.dist+ edge.weight;

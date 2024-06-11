@@ -1,6 +1,6 @@
 package demo23_DP;
 
-public class Demo01Fibonacci {
+public class Demo01_Fibonacci {
     /*
     * 斐波那契数列为例，非递归
     * 已知子问题的解，推导出当前问题的解，可以表达为一个数学公式
