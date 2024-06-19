@@ -1,7 +1,9 @@
 package demo23_DP;
 
 /*
-*   当前加j-coin的个数
+*   当前加（j-coin）的个数
+*   也就是说没有这个硬币有多少种方法+减去一个该种硬币的量还有多少种做法
+*   那减去两个硬币呢？后面会考虑到前面咯
 *       0   1   2   3   4   5   6   7   8   9   10  11  12
 * 1     1   1   1   1   1   1   1   1   1   1   1   1   1
 * 2     1   1   2   2   3   3   4   4   5   5   6   6   7
@@ -17,7 +19,6 @@ package demo23_DP;
 * */
 public class Solution3_518 {
     public int change(int amount, int[] coins) {
-        if (amount==0)return 1;
         int[] dp = new int[amount+1];
         dp[0]=1;
         for (int coin : coins) {
