@@ -1,5 +1,7 @@
 package demo23_DP;
 
+import java.util.Arrays;
+
 //最长公共子序列：字符之间不需要再一起
 /*
  *       a   b   c   d   e
@@ -14,7 +16,7 @@ package demo23_DP;
  * d     1   1   1   2   3   4   4
  * e     1   2   2   2   3   4   5
  *
- * 碰到相同，就看左上角！
+ * 碰到相同，就看左上角+1！
  * 不同，max（前一个，这一个）
  * 是什么意思呢？当前这么长的字符串在与另一个串的最长公共子序列，注意是当前，比较难表述
  *
@@ -70,5 +72,22 @@ public class Solution4_1143 {
             }
         }
         return dp[arr2.length - 1][arr1.length-1];
+    }
+    //对于代码优化：不用写第一行，多加一行，一列即可，创造全部为0的一行一列
+    //9ms击败98.22%
+    public int longestCommonSubsequence2(String text1, String text2) {
+        char[] arr1 = text1.toCharArray();
+        char[] arr2 = text2.toCharArray();
+        int[][] dp = new int[arr2.length+1][arr1.length+1];
+        for (int i =1; i <= arr2.length; i++) {
+            for (int j = 1; j <= arr1.length; j++) {
+                if (arr1[j-1] == arr2[i-1]) dp[i][j] = dp[i-1][j - 1]+1;
+                else dp[i][j] = Math.max(dp[i-1][j], dp[i][j - 1]);
+            }
+        }
+        for (int i = 0; i < dp.length; i++) {
+            System.out.println(Arrays.toString(dp[i]));
+        }
+        return dp[arr2.length][arr1.length];
     }
 }

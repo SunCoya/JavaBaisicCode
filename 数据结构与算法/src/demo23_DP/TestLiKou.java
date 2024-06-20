@@ -5,6 +5,6 @@ import org.junit.jupiter.api.Test;
 public class TestLiKou {
     @Test
     public void testLiKou(){
-        new Solution1_62().uniquePaths2(3,7);
+        new Solution4_1143().longestCommonSubsequence2("abcde","ace");
     }
 }
